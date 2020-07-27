@@ -1,0 +1,63 @@
+<form [formGroup]="contestForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="contest-card">
+    <mat-card-header>
+      <mat-card-title class="my-font">Finite Carvings</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col-sm-6 col-12">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Sach" formControlName="firstName">
+            <mat-error *ngIf="contestForm.controls.firstName.errors">
+              Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6 col-12">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Mobile Number</mat-label>
+            <input matInput placeholder="9876543210" formControlName="mobNo">
+            <mat-error *ngIf="contestForm.controls.mobNo.errors">
+              <span *ngIf="contestForm.controls.mobNo.errors.required"> Mobile Number is
+                <strong>required</strong></span>
+              <span *ngIf="!contestForm.controls.mobNo.errors.required">Please enter a valid indian 10 digit mobile
+                number e.g.9876543210</span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Start your story here...</mat-label>
+            <textarea matInput placeholder="Once upon a time..." matInput cdkTextareaAutosize
+              #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="10"
+              formControlName="content"></textarea>
+            <mat-error *ngIf="contestForm.controls.content.errors">
+              Story is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+      <button type="button" mat-stroked-button color="accent" (click)="viewEntries=!viewEntries">View Submissions</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
+<mat-card *ngIf="viewEntries">
+  <mat-card class="contest-card" *ngFor="let entry of entries">
+    <mat-card-header>
+      <mat-card-title class="my-font">Author : {{entry.firstName}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      {{entry.content}}
+    </mat-card-content>
+   
+  </mat-card>
+  <mat-card-actions>
+    <button mat-stroked-button color="accent" (click)="viewEntries=!viewEntries">Hide Entries</button>
+  </mat-card-actions>
+</mat-card>

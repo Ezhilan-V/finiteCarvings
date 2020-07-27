@@ -1,0 +1,11 @@
+.full-width {
+  width: 100%;
+}
+.my-font{
+font:charlemagne;
+}
+.contest-card {
+  min-width: 120px;
+  margin: 20px;
+  
+}
