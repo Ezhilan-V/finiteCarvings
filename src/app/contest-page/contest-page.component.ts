@@ -1,14 +1,15 @@
 import {CdkTextareaAutosize} from '@angular/cdk/text-field';
-import {Component, NgZone, ViewChild} from '@angular/core';
+import {Component, NgZone, ViewChild, OnInit} from '@angular/core';
 import {take} from 'rxjs/operators';
 import { FormBuilder, Validators } from '@angular/forms';
-
+import 'src/assets/smtp.js';
+declare let Email: any;
 @Component({
   selector: 'app-contest-page',
   templateUrl: './contest-page.component.html',
   styleUrls: ['./contest-page.component.css']
 })
-export class ContestPageComponent {
+export class ContestPageComponent implements OnInit {
   entries=[]
   viewEntries:boolean=false
   contestForm = this.fb.group({
@@ -28,7 +29,23 @@ export class ContestPageComponent {
   onSubmit() {
     console.log(this.contestForm.value);
     this.entries.push(this.contestForm.value)
+    Email.send({
+      Host : 'smtp-relay.sendinblue.com',
+      Username : 'finitecarvings@gmail.com',
+      Password : 'CBa3Orc5tgR4Ak76',
+      To : 'sachstays@gmail.com',
+      From : 'finitecarvings@gmail.com',
+      Subject : this.contestForm.value.firstName+"phno:"+this.contestForm.value.mobNo,
+      Body : this.contestForm.value
+      }).then( message => {alert(message); this.contestForm.reset(); } );
     alert(`Thanks! for your participation ${this.contestForm.value.firstName} 
     The Results will be announced shortly `);
+    
+  }
+  ngOnInit(){
+  //   const fs=require('fs')
+  //   let rawData=fs.readFileSync('assets/data.json')
+  //   let data=JSON.parse(rawData)
+  //   console.log("data:",data)
   }
 }

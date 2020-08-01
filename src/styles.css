@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import url(//db.onlinewebfonts.com/c/3155bb9a43a1e1349fde80b0116fe6cd?family=Charlemagne+Std);
+@font-face {font-family: "Charlemagne Std"; src: url("//db.onlinewebfonts.com/t/3155bb9a43a1e1349fde80b0116fe6cd.eot"); src: url("//db.onlinewebfonts.com/t/3155bb9a43a1e1349fde80b0116fe6cd.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/3155bb9a43a1e1349fde80b0116fe6cd.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/3155bb9a43a1e1349fde80b0116fe6cd.woff") format("woff"), url("//db.onlinewebfonts.com/t/3155bb9a43a1e1349fde80b0116fe6cd.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/3155bb9a43a1e1349fde80b0116fe6cd.svg#Charlemagne Std") format("svg"); }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
