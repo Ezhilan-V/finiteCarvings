@@ -16,11 +16,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { ViewSubmissionComponent } from './view-submission/view-submission.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContestPageComponent,
+    ViewSubmissionComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,7 @@ import { MatListModule } from '@angular/material/list';
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

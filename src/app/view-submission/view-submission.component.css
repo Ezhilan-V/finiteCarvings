@@ -1,0 +1,9 @@
+.example-card{
+    max-width: 700px;
+    margin: 20px;
+    padding: 5px;
+}
+p{
+    min-height: fit-content;
+    padding: 20px;
+}
