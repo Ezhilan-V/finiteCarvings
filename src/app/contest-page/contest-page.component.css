@@ -9,6 +9,7 @@ color: indigo;
 .contest-card {
   min-width: 120px;
   margin: 20px;
+  padding: 10px;
   
 }
 img{

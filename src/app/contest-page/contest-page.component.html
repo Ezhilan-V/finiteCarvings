@@ -38,6 +38,7 @@
             <textarea matInput placeholder="Once upon a time..." matInput cdkTextareaAutosize
               #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="5" cdkAutosizeMaxRows="10"
               formControlName="content"></textarea>
+              <mat-hint >{{contestForm.controls.content.value.split(" ").length-1}} / 200</mat-hint>
             <mat-error *ngIf="contestForm.controls.content.errors">
               Story is <strong>required</strong>
             </mat-error>

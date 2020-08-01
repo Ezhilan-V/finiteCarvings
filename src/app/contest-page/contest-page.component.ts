@@ -15,7 +15,7 @@ export class ContestPageComponent implements OnInit {
   contestForm = this.fb.group({
     firstName: [null, Validators.required],
     mobNo:[null, [Validators.required,Validators.min(6666666666),Validators.max(9999999999)]],
-    content: [null, Validators.required]
+    content: ["", Validators.required]
   });
 
   constructor(private fb: FormBuilder,private _ngZone: NgZone) {}
