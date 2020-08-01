@@ -14,8 +14,8 @@ export class ContestPageComponent implements OnInit {
   entries=[]
   viewEntries:boolean=false
   contestForm = this.fb.group({
-    name: [null, Validators.required],
-    mobNo:[null, [Validators.required,Validators.min(6666666666),Validators.max(9999999999)]],
+    name: ["", Validators.required],
+    mobNo:["", [Validators.required,Validators.min(6666666666),Validators.max(9999999999)]],
     content: ["", Validators.required]
   });
 errorMessage
@@ -31,9 +31,10 @@ successMessage
   onSubmit() {
     console.log(this.contestForm.value);
     this.serv.submit(this.contestForm.value).subscribe((res)=>{
-      this.successMessage=res
+      this.successMessage=res.message
       console.log(res);
-      
+      alert(`Thanks! for your participation ${this.contestForm.value.name} 
+      The Results will be announced shortly `);
     },(err)=>{
       console.log(err);
       this.errorMessage=err.message
@@ -47,8 +48,7 @@ successMessage
     //   Subject : this.contestForm.value.firstName+"phno:"+this.contestForm.value.mobNo,
     //   Body : this.contestForm.value
     //   }).then( message => {alert(message); this.contestForm.reset(); } );
-    alert(`Thanks! for your participation ${this.contestForm.value.firstName} 
-    The Results will be announced shortly `);
+
     
   }
   ngOnInit(){
