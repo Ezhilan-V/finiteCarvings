@@ -17,9 +17,11 @@ img{
   padding: 5px;
 }
 mat-card-header{
+  display: flex;
   padding: 0%;
   color: whitesmoke;
   background-color: rgb(65, 59, 59);
+  align-items: center;
 }
 mat-card-footer{
   display: flex;
